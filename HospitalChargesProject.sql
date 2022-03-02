@@ -51,7 +51,7 @@ SET @DRGCode = '207%'
 SELECT DRG_Definition, Provider_Name, Provider_State, Provider_id, Average_total_payments
 FROM HospitalCharges
 WHERE DRG_Definition like @DRGCode
-ORDER BY Average_Total_Payments DESC
+ORDER BY Average_Total_Payments DESC;
 
 
 -- What is the avg cost for each DRG, and which hospitals are above or below avg cost?
@@ -68,5 +68,5 @@ CASE
 FROM HospitalCharges
 GROUP BY DRG_Definition, Provider_Name, Provider_State, Provider_id, Average_total_payments, Average_Medicare_Payments
 HAVING DRG_Definition like @DRGCode
-ORDER BY Provider_State
+ORDER BY Provider_State;
 
