@@ -11,7 +11,6 @@ ORDER BY Provider_State, Provider_Name, Average_Total_Payments DESC;
 --View how much hospitals in a state charge on average for a specific Diagnosis Related Group (DRG)
 DECLARE @Code as varchar(max)
 DECLARE @State as nchar(2)
-
 --For @Code can change the number but must leave the "%" symbol there
 SET @Code = '207%'
 SET @State = 'TX'
@@ -39,7 +38,6 @@ ORDER BY Average_Total_Payments DESC
 RETURN
 END;
 
-
 SELECT *
 FROM dbo.DrgStateCost('192%', 'TX')
 ORDER BY AvgPayment DESC;
@@ -56,7 +54,7 @@ WHERE DRG_Definition like @DRGCode
 ORDER BY Average_Total_Payments DESC
 
 
--- What is the avg cost for a DRG, and which hospitals are above or below avg cost?
+-- What is the avg cost for each DRG, and which hospitals are above or below avg cost?
 DECLARE @DRGCode as varchar(max)
 
 SET @DRGCode = '207%'
